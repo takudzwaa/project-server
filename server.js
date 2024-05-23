@@ -4,8 +4,10 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import session from 'express-session';
 import productRouter from './routes/product.js';
+import cors from 'cors'
 
 dotenv.config();
+app.use(cors());
 const app = express();
 
 app.use(json()); // for parsing application/json
