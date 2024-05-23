@@ -16,9 +16,10 @@ router.get('/products', async (_req, res) => {
 router.post('/products', async (req, res) => {
   const product = new Product({
     batchNo: req.body.batchNo,
-    name: req.body.name,
+    productName: req.body.name,
     price: req.body.price,
-    expiryDate: req.body.expiryDate
+    expiryDate: req.body.expiryDate,
+    description: req.body.description
   });
 
   try {
