@@ -21,7 +21,7 @@ app.use(session({
 // Connect to MongoDB
 process.env.OPENSSL_CONF = "";
 
-mongoose.connect('mongodb://localhost:27017/my_DB')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Database connected successfully'))
   .catch(err => console.log(err));
 
@@ -48,10 +48,7 @@ app.post('/register', (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 5500;
-app.listen(PORT, (err) => {
-  if(err){
-    console.log('Error running sever: ', err)
-  }
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
