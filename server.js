@@ -5,11 +5,14 @@ import dotenv from 'dotenv';
 import session from 'express-session';
 import productRouter from './routes/product.js';
 import cors from 'cors'
+import morgan from 'morgan'
 
 dotenv.config();
 const app = express();
 app.use(cors());
 
+app.use(morgan('common'));
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(json()); // for parsing application/json
 
 // Middleware configuration
