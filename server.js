@@ -7,8 +7,8 @@ import productRouter from './routes/product.js';
 import cors from 'cors'
 
 dotenv.config();
-app.use(cors());
 const app = express();
+app.use(cors());
 
 app.use(json()); // for parsing application/json
 
